@@ -36,6 +36,7 @@
 		"oddbaijani.an": "link:",
 		"p-map": "^6.0.0",
 		"path": "^0.12.7",
+		"scrobbles": "^0.3.0",
 		"ws": "^8.14.2"
 	}
 }

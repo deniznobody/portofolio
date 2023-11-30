@@ -1,48 +1,24 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	
+	let username = "deniznobody";
+	let api_key = "cdf135c833971d694c742d2384c1bbd3"
+	let recentTracks;
+	let lastTrack: any;
+	let arrlastTrack;
+	
 
-	let body: any;
-	let data: any;
-	let spotify: any;
-	let ttlLength: any;
-	let crrntTimeStamp: any;
-	let currentTimeStamp: any;
-	let secondPart: any;
 	onMount(async () => {
-		const ws: any = new WebSocket('wss://api.lanyard.rest/socket');
-
-		ws.addEventListener('open', () => {
-			console.log('Connected to websocket');
-
-			const initializePayload = {
-				"op": 2,
-				"d": {
-					"subscribe_to_id": "1149375668057034752"
-				}
+		setInterval(async () => {
+		const res = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${username}&api_key=${api_key}&format=json&nowplaying=true`);
+			recentTracks = await res.json();
+			arrlastTrack = Object.entries(recentTracks.recenttracks.track)[0];
+			lastTrack = JSON.parse(JSON.stringify(arrlastTrack))[1];
+			if(!lastTrack['@attr']) {
+				lastTrack = undefined
 			}
-
-		ws.send(JSON.stringify(initializePayload));
-		ws.addEventListener('message', (message: any) => {
-			body = message
-			data = JSON.parse(body.data);
-			spotify = data.d.spotify
-			if(data.op == 0) {
-				let spotify_interval;
-				ttlLength = new Date(spotify.timestamps.end! - spotify.timestamps.start!);
-				crrntTimeStamp = new Date(Date.now() - spotify.timestamps.start!);
-				currentTimeStamp = `${crrntTimeStamp.getMinutes()}:${crrntTimeStamp.getSeconds() < 10 ? '0' + crrntTimeStamp.getSeconds()  : crrntTimeStamp.getSeconds()}`
-				secondPart = `${ttlLength.getMinutes()}:${ttlLength.getSeconds() < 10 ? ttlLength.getSeconds() + '0' : ttlLength.getSeconds()}`;
-				if (spotify_interval) clearInterval(spotify_interval)
-							spotify_interval = setInterval(() => {
-								ttlLength = new Date(spotify.timestamps.end! - spotify.timestamps.start!);
-								crrntTimeStamp = new Date(Date.now() - spotify.timestamps.start!);
-								currentTimeStamp = `${crrntTimeStamp.getMinutes()}:${crrntTimeStamp.getSeconds() < 10 ? '0' + crrntTimeStamp.getSeconds()  : crrntTimeStamp.getSeconds()}`
-								secondPart = `${ttlLength.getMinutes()}:${ttlLength.getSeconds() < 10 ? '0' + ttlLength.getSeconds()  : ttlLength.getSeconds()}`;
-					}, 1_000);
-				}
-			});
-		});
+		}, 5000)		
 
 	});
 
@@ -59,23 +35,27 @@
 
 	<p class="text-text mt-2">deniz</p>
 	<p class="text-[#a8a8a8] text-sm">Bazı hesaplar mahşere kaldı.</p>
-	{#if spotify}
-		<div class="flex flex-row items-center p-6 w-max-48  gap-x-4 h-24 m text-text rounded-md justify-center mt-2 ">
-			<img class="rounded-md" src={spotify.album_art_url} height="72" width="72" alt=""> 
-			<div class="flex flex-col items-center gap-x-2 mt-2">
-				{spotify.artist} - {spotify.song}
-				<p class="text-[#a8a8a8] text-sm">
-					{currentTimeStamp}/{secondPart}
-
-				</p>
+		{#if lastTrack} 
+			<div class="flex flex-row items-center p-6 w-max-48  gap-x-4 mt-4 h-24 m text-text shadow-lg border-[1px] border-[#252525] rounded-md justify-center mt-t">
+				<img class="rounded-md" src={lastTrack.image[3]['#text']} height="72" width="72" alt=""> 
+				<div class="flex flex-col">
+					{lastTrack.artist['#text']} - {lastTrack.name}
+					<div class="flex flex-row gap-x-2 text-[#a8a8a8] shadow-lg text-sm">
+						{lastTrack.album['#text']}
+					</div>
+				</div>
 			</div>
-
-		</div>
 		{:else}
-		<div class="text-sm text-text mt-2">
-			Not Listening to anything.
-		</div>
-	{/if}
+			<div class="flex flex-row items-center p-6 w-max-48  gap-x-4 mt-4 h-24 m text-text border-[1px] shadow-lg  border-[#252525] rounded-md justify-center mt-t">
+				<img class="rounded-md" src="https://kharoxe.wtf/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsong.a188f83d.webp&w=96&q=75" height="72" width="72" alt=""> 
+				<div class="flex flex-col">
+					Not listening to anything.
+					<div class="flex flex-row gap-x-2 text-[#a8a8a8] text-sm">
+						Spotify
+					</div>
+				</div>
+			</div>
+		{/if}
 	<div
 		class="w-48 h-12 text-text flex flex-row items-center justify-center mt-4 rounded-md gap-4"
 	>
@@ -126,6 +106,6 @@
 		</a>
 	</div>
 	<div class="text-primary mt-2 hover:underline hover:cursor-pointer">
-		<a href="/blog">/blog</a>
+		<!-- <a href="/blog">/blog</a> -->
 	</div>
 </div>
