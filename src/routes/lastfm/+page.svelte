@@ -15,7 +15,7 @@ setInterval(() => {
         <p class="text-2xl font-bold">Last 15 Tracks</p>
         <p class="text-md text-[#a8a8a8]">Current Time</p>
         <div class="mt-[1px] px-[2.5rem] py-2 border-[1px] border-[#252525]">
-            <p class="text-md text-[#a8a8a8]">{format(currentTime, 'H:M:ss')}</p>
+            <p class="text-md text-[#a8a8a8]">{format(currentTime, 'H:m:ss')}</p>
         </div>
     </div>
     <div class="flex flex-col px-4 py-4 rounded-md gap-y-2">
