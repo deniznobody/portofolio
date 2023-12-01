@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 	
 	let username = "deniznobody";
-	let api_key = "cdf135c833971d694c742d2384c1bbd3"
+	let api_key = "cdf135c833971d694c742d2384c1bbd3";
 	let recentTracks;
 	let lastTrack: any;
 	let arrlastTrack;
