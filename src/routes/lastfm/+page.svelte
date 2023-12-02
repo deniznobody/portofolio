@@ -5,6 +5,8 @@ export let data;
 
 let currentTime = new Date().getTime()
 
+console.log(data)
+
 setInterval(() => {
     currentTime = new Date().getTime()
 }, 1000);
@@ -23,9 +25,9 @@ setInterval(() => {
             <div class="flex flex-row px-2 py-2 gap-x-4 rounded-md border-[1px] border-[#252525]">
                 <img src={track.image[3]['#text']} class="rounded-md" height="72" width="72"  alt="">
                 <div class="flex flex-col py-4">
-                    <p>
-                        {track.name}   
-                    </p>     
+                    <a href={track.url} target="_blank" class="hover:underline">
+                        {track.artist['#text']} - {track.name}   
+                    </a>     
                     <p class="text-sm text-[#a8a8a8]">
                         {track.album['#text']}
                     </p>               
