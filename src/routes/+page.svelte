@@ -2,8 +2,6 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	
-	let username = "deniznobody";
-	let api_key = "cdf135c833971d694c742d2384c1bbd3";
 	let recentTracks;
 	let lastTrack: any;
 	let arrlastTrack;
@@ -11,14 +9,14 @@
 
 	onMount(async () => {
 		setInterval(async () => {
-		const res = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${username}&api_key=${api_key}&format=json&nowplaying=true`);
+		const res = await fetch(`/api/last`);
 			recentTracks = await res.json();
-			arrlastTrack = Object.entries(recentTracks.recenttracks.track)[0];
+			arrlastTrack = Object.entries(recentTracks.track)[0];
 			lastTrack = JSON.parse(JSON.stringify(arrlastTrack))[1];
 			if(!lastTrack['@attr']) {
 				lastTrack = undefined
 			}
-		}, 5000)		
+		}, 3000)		
 
 	});
 
