@@ -84,7 +84,7 @@
 			>
 		</a>
 		<a
-			href="https://github.com/oddbaijanian"
+			href="https://github.com/deniznobody"
 			target="_blank"
 			class="hover:cursor-pointer hover:text-primary transition-all duration-300"
 		>
