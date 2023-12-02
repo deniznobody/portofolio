@@ -24,11 +24,11 @@
 
 <div class="text-texts flex flex-col justify-center items-center min-h-screen w-full">
 	<img
-		src="https://api.lanyard.rest/1149375668057034752.png"
+		src="https://i.pinimg.com/736x/9b/fb/a1/9bfba145789b1d1d69da4bc0c951b63a.jpg"
 		height="48"
 		width="128"
 		alt=""
-		class="rounded-full"
+		class="rounded-full border-[1px] border-[#252525]"
 	/>
 
 	<p class="text-text mt-2">deniz</p>
