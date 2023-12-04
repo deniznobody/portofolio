@@ -5,7 +5,6 @@ export let data;
 
 let currentTime = new Date().getTime()
 
-console.log(data)
 
 setInterval(() => {
     currentTime = new Date().getTime()

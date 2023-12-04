@@ -1,6 +1,5 @@
 <script lang="ts">
 	export let data;
-	console.log(data.posts)
 </script>
 
 <div
@@ -19,7 +18,7 @@
 	<div class="flex flex-col  items-center w-full gap-y-4 justify-center px-72 text-text">
 		{#each data.posts as post }
 			<div class="flex flex-col w-[340px] min-w-[240px] bg-bgsecondary">
-				<img class="rounded-t-sm min-w-[240px] h-[125px]" src={post.thumbnail} alt="">
+				<img class="rounded-t-sm min-w-[240px] h-[125px]" height="72" width="72" src={post.thumbnail} alt="">
 				<div class="px-4 py-2">
 					<div class="flex flex-row gap-x-2 mb-2 mt-2">
 						{#each post.hashtag as  hashtag}
