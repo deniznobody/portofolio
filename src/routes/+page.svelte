@@ -24,7 +24,7 @@
 
 <div class="text-texts flex flex-col justify-center items-center min-h-screen w-full">
 	<img
-		src="https://i.pinimg.com/736x/9b/fb/a1/9bfba145789b1d1d69da4bc0c951b63a.jpg"
+		src="https://cdn.discordapp.com/avatars/1149375668057034752/56b284293c585a5fe242a547b6384d7d.png"
 		height="48"
 		width="128"
 		alt=""
