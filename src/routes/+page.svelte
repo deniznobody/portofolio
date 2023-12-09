@@ -35,7 +35,11 @@
 	<p class="text-[#a8a8a8] text-sm">Bazı hesaplar mahşere kaldı.</p>
 		{#if lastTrack} 
 			<div class="flex flex-row items-center p-4 w-max-48  gap-x-4 mt-4 h-24 m text-text shadow-lg border-[1px] border-[#252525] rounded-md justify-center mt-t">
-				<img class="rounded-md" src={lastTrack.image[3]['#text']} height="72" width="72" alt=""> 
+				{#if lastTrack.image[2]['#text'] == "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"}
+					<img class="rounded-md" src="https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" height="75" width="75" alt=""> 
+				{:else}
+					<img class="rounded-md" src={lastTrack.image[3]['#text']} height="75" width="75" alt=""> 
+				{/if}
 				<div class="flex flex-col">
 					{lastTrack.artist['#text']} - {lastTrack.name}
 					<div class="flex flex-row gap-x-2 text-[#a8a8a8] shadow-lg text-sm">
@@ -46,7 +50,7 @@
 			</div>
 		{:else}
 			<div class="flex flex-row items-center p-4 w-max-48  gap-x-4 mt-4 h-24 m text-text border-[1px] shadow-lg  border-[#252525] rounded-md justify-center mt-t">
-				<img class="rounded-md border-[2px] border-[#252525]" src="https://kharoxe.wtf/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsong.a188f83d.webp&w=96&q=75" height="72" width="72" alt=""> 
+				<img class="rounded-md border-[2px] border-[#252525]" src="https://kharoxe.wtf/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsong.a188f83d.webp&w=96&q=75" height="75" width="75" alt=""> 
 				<div class="flex flex-col">
 					Not listening to anything.
 					<div class="flex flex-row gap-x-2 text-[#a8a8a8] text-sm">
