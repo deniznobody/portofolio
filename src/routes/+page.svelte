@@ -16,6 +16,7 @@
 			if(!lastTrack['@attr']) {
 				lastTrack = undefined
 			}
+			console.log(lastTrack)
 		}, 3000)		
 
 	});
@@ -24,7 +25,7 @@
 
 <div class="text-texts flex flex-col justify-center items-center min-h-screen w-full">
 	<img
-		src="https://cdn.discordapp.com/avatars/1149375668057034752/56b284293c585a5fe242a547b6384d7d.png"
+		src="https://api.lanyard.rest/1149375668057034752.png"
 		height="48"
 		width="128"
 		alt=""
