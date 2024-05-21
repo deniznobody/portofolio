@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	
 	let recentTracks;
@@ -12,11 +11,11 @@
 		const res = await fetch(`/api/last`);
 			recentTracks = await res.json();
 			arrlastTrack = Object.entries(recentTracks.track)[0];
+			console.log(arrlastTrack)
 			lastTrack = JSON.parse(JSON.stringify(arrlastTrack))[1];
 			if(!lastTrack['@attr']) {
 				lastTrack = undefined
 			}
-			console.log(lastTrack)
 		}, 3000)		
 
 	});
@@ -33,11 +32,11 @@
 	/>
 
 	<p class="text-text mt-2">dêniz</p>
-	<p class="text-[#a8a8a8] text-sm">Bazı hesaplar mahşere kaldı.</p>
+	<p class="text-[#a8a8a8] text-sm">Real eyes realize real lies.</p>
 		{#if lastTrack} 
 			<div class="flex flex-row items-center p-4 w-max-48  gap-x-4 mt-4 h-24 m text-text shadow-lg border-[1px] border-[#252525] rounded-md justify-center mt-t">
-				{#if lastTrack.image[2]['#text'] === 'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png'}
-					<img class="rounded-md" src="https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" height="75" width="75" alt=""> 
+				{#if lastTrack.image[2]['#text'] === 'https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2'}
+					<img class="rounded-md" src="https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2" height="75" width="75" alt=""> 
 				{:else}
 					<img class="rounded-md" src={lastTrack.image[2]['#text']} height="75" width="75" alt=""> 
 				{/if}
@@ -51,7 +50,7 @@
 			</div>
 		{:else}
 			<div class="flex flex-row items-center p-4 w-max-48  gap-x-4 mt-4 h-24 m text-text border-[1px] shadow-lg  border-[#252525] rounded-md justify-center mt-t">
-				<img class="rounded-md border-[2px] border-[#252525]" src="https://kharoxe.wtf/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsong.a188f83d.webp&w=96&q=75" height="75" width="75" alt=""> 
+				<img class="rounded-md border-[2px] border-[#252525]" src="https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2" height="75" width="75" alt=""> 
 				<div class="flex flex-col">
 					Not listening to anything.
 					<div class="flex flex-row gap-x-2 text-[#a8a8a8] text-sm">
@@ -122,8 +121,5 @@
 		>
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6c-.15-.5.15-1 .6-1.15c3.55-1.05 9.4-.85 13.1 1.35c.45.25.6.85.35 1.3c-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25c-2.7-1.65-6.8-2.15-9.95-1.15c-.4.1-.85-.1-.95-.5c-.1-.4.1-.85.5-.95c3.65-1.1 8.15-.55 11.25 1.35c.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2c-2.35-1.45-5.3-1.75-8.8-.95c-.35.1-.65-.15-.75-.45c-.1-.35.15-.65.45-.75c3.8-.85 7.1-.5 9.7 1.1c.35.15.4.55.25.85M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/></svg>
 		</a>
-	</div>
-	<div class="text-[#a8a8a8] mt-2 hover:underline hover:cursor-pointer">
-		 <a href="/lastfm">/lastfm</a> 
 	</div>
 </div>
