@@ -24,7 +24,7 @@
 
 <div class="text-texts flex flex-col justify-center items-center min-h-screen w-full">
 	<img
-		src="https://api.lanyard.rest/1149375668057034752.png"
+		src="https://api.lanyard.rest/852784554561372242.png"
 		height="48"
 		width="128"
 		alt=""
