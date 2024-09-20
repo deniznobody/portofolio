@@ -10,8 +10,7 @@
 		setInterval(async () => {
 		const res = await fetch(`/api/last`);
 			recentTracks = await res.json();
-			arrlastTrack = Object.entries(recentTracks.track)[0];
-			console.log(arrlastTrack)
+			arrlastTrack = Object.entries(recentTracks.track)[0];k)
 			lastTrack = JSON.parse(JSON.stringify(arrlastTrack))[1];
 			if(!lastTrack['@attr']) {
 				lastTrack = undefined
@@ -24,7 +23,7 @@
 
 <div class="text-texts flex flex-col justify-center items-center min-h-screen w-full">
 	<img
-		src="https://api.lanyard.rest/852784554561372242.png"
+		src="https://api.lanyard.rest/1274308572150501408.png"
 		height="48"
 		width="128"
 		alt=""
