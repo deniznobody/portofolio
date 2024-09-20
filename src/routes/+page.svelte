@@ -10,7 +10,7 @@
 		setInterval(async () => {
 		const res = await fetch(`/api/last`);
 			recentTracks = await res.json();
-			arrlastTrack = Object.entries(recentTracks.track)[0];k)
+			arrlastTrack = Object.entries(recentTracks.track)[0])
 			lastTrack = JSON.parse(JSON.stringify(arrlastTrack))[1];
 			if(!lastTrack['@attr']) {
 				lastTrack = undefined
