@@ -39,7 +39,7 @@
 				{:else}
 					<img class="rounded-md" src={lastTrack.image[2]['#text']} height="75" width="75" alt=""> 
 				{/if}
-				<div class="flex flex-col">
+				<div class="flex flex-col truncate">
 					{lastTrack.artist['#text']} - {lastTrack.name}
 					<div class="flex flex-row gap-x-2 text-[#a8a8a8] shadow-lg text-sm">
 						<p>{lastTrack.album['#text']}</p>
