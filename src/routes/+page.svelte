@@ -31,9 +31,9 @@
 	/>
 
 	<p class="text-text mt-2">dêniz</p>
-	<p class="text-[#a8a8a8] text-sm">Real eyes realize real lies.</p>
+	<p class="text-[#a8a8a8] text-sm">chronically alive</p>
 		{#if lastTrack} 
-			<div class="flex flex-row items-center p-4 w-max-48  gap-x-4 mt-4 h-24 m text-text shadow-lg border-[1px] border-[#252525] rounded-md justify-center mt-t">
+			<div class="flex flex-row items-center p-4 w-max-48  gap-x-4 mt-2 h-24 text-text shadow-lg border-[1px] border-[#252525] rounded-md justify-center mt-t">
 				{#if lastTrack.image[2]['#text'] === 'https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2'}
 					<img class="rounded-md" src="https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2" height="75" width="75" alt=""> 
 				{:else}
@@ -43,7 +43,6 @@
 					{lastTrack.artist['#text']} - {lastTrack.name}
 					<div class="flex flex-row gap-x-2 text-[#a8a8a8] shadow-lg text-sm">
 						<p>{lastTrack.album['#text']}</p>
-						<p>- Listening now</p>
 					</div>
 				</div>
 			</div>
